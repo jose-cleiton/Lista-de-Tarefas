@@ -1,0 +1,20 @@
+ #principal{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 40px;
+    width: 800px;
+    height: 400px;
+    background-color: darkcyan;
+}
+
+ #secundaria{
+    border-radius: 5%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: cornsilk;
+    width: 500px;
+    height: auto;
+    padding: 40px;
+}
