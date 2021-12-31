@@ -8,6 +8,10 @@ botao.addEventListener('click', ()=>{
     elementoASerCriado.innerText =inputDigitado.value
     inputDigitado.value="";
     elementoASerCriado.addEventListener('click', ()=>{
+      let li=  document.querySelectorAll('li')
+        for(let liAchado of li){
+            liAchado.style.backgroundColor=''
+        }
         elementoASerCriado.style.backgroundColor= 'rgb(128, 128, 128)';
     })
   
