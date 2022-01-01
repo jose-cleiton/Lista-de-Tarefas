@@ -7,13 +7,37 @@ botao.addEventListener('click', ()=>{
     elementoPai.appendChild(elementoASerCriado)
     elementoASerCriado.innerText =inputDigitado.value
     inputDigitado.value="";
-    elementoASerCriado.addEventListener('click', ()=>{
-      let li=  document.querySelectorAll('li')
-        for(let liAchado of li){
-            liAchado.style.backgroundColor=''
-        }
-        elementoASerCriado.style.backgroundColor= 'rgb(128, 128, 128)';
+    let li=  document.querySelectorAll('li')
+    let listaDeclass = document.querySelectorAll('.selected')
+    elementoASerCriado.addEventListener('click', (event)=>{
+        let classeSelecionada = document.getElementsByClassName('selected')
+         
+         
+             let evento = event.target
+             evento.classList.add('selected')
+             let listaDeclass = document.querySelectorAll('.selected')
+
+             for(let i=0; i<listaDeclass.length; ++i){
+                    let classlist =listaDeclass[i]
+                    classlist.className ='';
+              
+            }
+            evento.classList.add('selected') 
+              
     })
-  
+    
+    elementoASerCriado.addEventListener('dblclick', (event)=>{
+        let evento = event.target
+      //  evento.style.backgroundColor = 'rgb(128, 128, 128)'
+        if (evento.classList.contains('completed')){   
+            evento.classList.remove('completed')
+        } else {
+             evento.classList.add('completed')
+}
+
+
+    })
     
 })
+
+
