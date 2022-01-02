@@ -1,43 +1,68 @@
-let botao = document.getElementById('criar-tarefa');
+let botaoAdicionar = document.getElementById('criar-tarefa');
 let inputDigitado=document.getElementById('texto-tarefa').value
-botao.addEventListener('click', ()=>{
+let listaDeLi = document.getElementById('lista-tarefas');
+let listaDeLiTachada = document.getElementById('lista-tarefas');
+
+
+botaoAdicionar.addEventListener('click', ()=>{
     let elementoPai =document.getElementById('lista-tarefas')   
     let inputDigitado=document.getElementById('texto-tarefa')
     let elementoASerCriado =document.createElement('li')
+    let lisCriada = document.getElementsByTagName('li')
     elementoPai.appendChild(elementoASerCriado)
     elementoASerCriado.innerText =inputDigitado.value
     inputDigitado.value="";
     let li=  document.querySelectorAll('li')
     let listaDeclass = document.querySelectorAll('.selected')
-    elementoASerCriado.addEventListener('click', (event)=>{
-        let classeSelecionada = document.getElementsByClassName('selected')
-         
-         
-             let evento = event.target
-             evento.classList.add('selected')
-             let listaDeclass = document.querySelectorAll('.selected')
 
-             for(let i=0; i<listaDeclass.length; ++i){
-                    let classlist =listaDeclass[i]
-                    classlist.className ='';
-              
-            }
-            evento.classList.add('selected') 
-              
-    })
-    
-    elementoASerCriado.addEventListener('dblclick', (event)=>{
-        let evento = event.target
-      //  evento.style.backgroundColor = 'rgb(128, 128, 128)'
-        if (evento.classList.contains('completed')){   
-            evento.classList.remove('completed')
-        } else {
-             evento.classList.add('completed')
-}
-
-
-    })
-    
 })
+
+
+    
+listaDeLi.addEventListener('click', (event)=>{
+    if (event.detail ===1) {
+        console.log('1 click'); 
+        let classeSelecionada = document.getElementsByClassName('selected')
+             
+        let evento = event.target
+        let listaDeclass = document.getElementsByClassName('selected')
+
+        for(let i=0; i<listaDeclass.length; ++i){
+               let classlist =listaDeclass[i]
+              classlist.classList.remove('selected')
+        }
+       evento.classList.add('selected') 
+      
+          
+        }
+      
+      
+       
+        
+    })
+    
+    listaDeLiTachada.addEventListener('dblclick', (event)=>{
+        let evento = event.target
+   
+        if (event.detail === 2) {
+          console.log('2 click');  
+          
+
+            if (evento.classList.contains('completed')){   
+                evento.classList.remove('completed')
+            } else {
+                 evento.classList.add('completed')
+            }
+       
+           
+        }    
+            
+          
+    
+    
+
+    })
+    
+
 
 
